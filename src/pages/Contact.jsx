@@ -65,7 +65,7 @@ const Contact = () => {
                 {/* Google Maps (Full Width) */}
                 <div className="map-section" data-aos="fade-up" data-aos-delay={200}>
                     <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d48389.78314118045!2d-74.006138!3d40.710059!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a22a3bda30d%3A0xb89d1fe6bc499443!2sDowntown%20Conference%20Center!5e0!3m2!1sen!2sus!4v1676961268712!5m2!1sen!2sus"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3666.4591429521806!2d73.20594541107543!3d23.226373408604296!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395de27577a22d49%3A0x8addc2401096a3bf!2s66G5%2BGCR%2C%20Dahegam%20-%20Bayad%20Rd%2C%20Bayad%2C%20Gujarat%20383325!5e0!3m2!1sen!2sin!4v1751632206588!5m2!1sen!2sin"
                         width="100%"
                         height={500}
                         title='google map'

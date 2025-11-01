@@ -364,7 +364,7 @@ const Home = () => {
                                                 <span>(24)</span>
                                             </div>
                                             <div className="product-price">
-                                                <span className="current-price">$87.50</span>
+                                                <span className="current-price">₹8777.50</span>
                                             </div>
                                         </div>
                                     </div>
@@ -387,7 +387,7 @@ const Home = () => {
                                                 <span>(41)</span>
                                             </div>
                                             <div className="product-price">
-                                                <span className="current-price">$39.99</span>
+                                                <span className="current-price">₹3999.99</span>
                                             </div>
                                         </div>
                                     </div>
@@ -410,7 +410,7 @@ const Home = () => {
                                                 <span>(18)</span>
                                             </div>
                                             <div className="product-price">
-                                                <span className="current-price">$45.00</span>
+                                                <span className="current-price">₹4500.00</span>
                                             </div>
                                         </div>
                                     </div>
@@ -449,8 +449,8 @@ const Home = () => {
                                                 <span>(87)</span>
                                             </div>
                                             <div className="product-price">
-                                                <span className="current-price">$68.00</span>
-                                                <span className="old-price">$80.00</span>
+                                                <span className="current-price">₹680.00</span>
+                                                <span className="old-price">₹899.00</span>
                                             </div>
                                         </div>
                                     </div>
@@ -473,7 +473,7 @@ const Home = () => {
                                                 <span>(56)</span>
                                             </div>
                                             <div className="product-price">
-                                                <span className="current-price">$129.99</span>
+                                                <span className="current-price">₹12999.99</span>
                                             </div>
                                         </div>
                                     </div>
@@ -499,7 +499,7 @@ const Home = () => {
                                                 <span>(112)</span>
                                             </div>
                                             <div className="product-price">
-                                                <span className="current-price">$95.50</span>
+                                                <span className="current-price">₹2555.50</span>
                                             </div>
                                         </div>
                                     </div>
@@ -535,7 +535,7 @@ const Home = () => {
                                                 <span>(32)</span>
                                             </div>
                                             <div className="product-price">
-                                                <span className="current-price">$75.00</span>
+                                                <span className="current-price">₹1750.00</span>
                                             </div>
                                         </div>
                                     </div>
@@ -561,7 +561,7 @@ const Home = () => {
                                                 <span>(47)</span>
                                             </div>
                                             <div className="product-price">
-                                                <span className="current-price">$42.99</span>
+                                                <span className="current-price">₹4299.99</span>
                                             </div>
                                         </div>
                                     </div>
@@ -584,7 +584,7 @@ const Home = () => {
                                                 <span>(64)</span>
                                             </div>
                                             <div className="product-price">
-                                                <span className="current-price">$89.99</span>
+                                                <span className="current-price">₹1899.99</span>
                                             </div>
                                         </div>
                                     </div>

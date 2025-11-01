@@ -259,12 +259,7 @@ const Cart = () => {
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div className="col-lg-6 text-md-end">
-
-                                                                <button className="btn btn-outline-remove">
-                                                                    <i className="bi bi-trash" /> Clear Cart
-                                                                </button>
-                                                            </div>
+                                                            
                                                         </div>
                                                     </div>
                                                 </div>

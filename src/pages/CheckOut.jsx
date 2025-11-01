@@ -328,7 +328,7 @@ const CheckOut = () => {
                                                     className="btn btn-primary place-order-btn"
                                                 >
                                                     <span className="btn-text">{loading ? "Loading...." : "Place Order"} </span>
-                                                    <span className="btn-price">${total}</span>
+                                                    <span className="btn-price">₹{total}</span>
                                                 </button>
                                             </div>
                                         </div>

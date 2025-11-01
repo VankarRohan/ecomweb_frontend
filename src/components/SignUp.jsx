@@ -6,12 +6,25 @@ import { toast } from 'react-toastify'
 
 
 const SignUp = () => {
-    const { register, handleSubmit, reset } = useForm()
+    const {
+        register,
+        handleSubmit,
+        reset,
+        watch,
+        formState: { errors }
+    } = useForm()
+
     const [loading, setLoading] = useState(false)
+    const password = watch("password");
 
     const submitHandler = async (data) => {
 
-        // console.log(data)
+        if (data.password !== data.confirmPassword) {
+            toast.error("Passwords do not match!");
+            return;
+        }
+
+       
         try {
             setLoading(true)
             const res = await axios.post("https://ecomweb-backend-u6x8.onrender.com/users/user", data)
@@ -24,7 +37,7 @@ const SignUp = () => {
             console.log(error)
             setLoading(false)
 
-            toast.error(error.response.data.data.message);
+            toast.error(error.response.data.message || "Registration failed");
         }
 
     }
@@ -108,7 +121,56 @@ const SignUp = () => {
                                                 />
                                                 <label htmlFor="email">Phone Number</label>
                                             </div>
+
                                             <div className="row mb-3">
+                                                <div className="col-md-6">
+                                                    <div className="form-floating">
+                                                        <input
+                                                            {...register("password", {
+                                                                required: true,
+                                                                minLength: 8,
+                                                            })}
+                                                            type="password"
+                                                            className="form-control"
+                                                            id="password"
+                                                            placeholder="Password"
+                                                            autoComplete="new-password"
+                                                        />
+                                                        <label htmlFor="password">Password</label>
+                                                        {errors.password && (
+                                                            <p className="text-danger small">
+                                                                Password must be at least 8 characters
+                                                            </p>
+                                                        )}
+                                                    </div>
+                                                </div>
+                                                <div className="col-md-6">
+                                                    <div className="form-floating">
+                                                        <input
+                                                            {...register("confirmPassword", {
+                                                                required: true,
+                                                                validate: (value) =>
+                                                                    value === password || "Passwords do not match",
+                                                            })}
+                                                            type="password"
+                                                            className="form-control"
+                                                            id="confirmPassword"
+                                                            placeholder="Confirm Password"
+                                                            autoComplete="new-password"
+                                                        />
+                                                        <label htmlFor="confirmPassword">
+                                                            Confirm Password
+                                                        </label>
+                                                        {errors.confirmPassword && (
+                                                            <p className="text-danger small">
+                                                                {errors.confirmPassword.message}
+                                                            </p>
+                                                        )}
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            {/* <div className="row mb-3">
                                                 <div className="col-md-6">
                                                     <div className="form-floating">
                                                         <input
@@ -142,7 +204,7 @@ const SignUp = () => {
                                                         </label>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> */}
 
                                             <div className="form-check mb-4">
                                                 <input
@@ -160,7 +222,7 @@ const SignUp = () => {
 
                                             <div className="d-grid mb-4">
                                                 <button type="submit" disabled={loading} className="btn btn-register">
-                                                   {loading ? "Loading....":  "Create Account"}
+                                                    {loading ? "Loading...." : "Create Account"}
                                                 </button>
                                             </div>
 

@@ -8,6 +8,8 @@ const SignIn = ({ setOpenAuth }) => {
 
     const { register, handleSubmit } = useForm()
     const [loading, setLoading] = useState(false)
+    const [showPassword, setShowPassword] = useState(false);
+
 
 
     const submitHandler = async (data) => {
@@ -84,14 +86,18 @@ const SignIn = ({ setOpenAuth }) => {
                                             <input
                                                 {...register("password")}
 
-                                                type="password"
+                                                 type={showPassword ? "text" : "password"} 
                                                 className="form-control"
                                                 placeholder="Password"
-                                                required=""
+                                                required
                                                 autoComplete="current-password"
                                             />
-                                            <span className="password-toggle">
-                                                <i className="bi bi-eye" />
+                                            <span
+                                                className="password-toggle"
+                                                onClick={() => setShowPassword(!showPassword)}
+                                                // style={{ cursor: "pointer", position: "absolute", right: "10px", top: "8px" }}
+                                            >
+                                                <i className={`bi ${showPassword ? "bi-eye-slash" : "bi-eye"}`} />
                                             </span>
                                         </div>
                                         <div className="form-options mb-4">
@@ -105,8 +111,8 @@ const SignIn = ({ setOpenAuth }) => {
                                         </div>
 
                                         <button type="submit" disabled={loading} className="auth-btn primary-btn mb-3">
-                                        
-                                                   {loading ? "Loading....":  "SIGN IN"}
+
+                                            {loading ? "Loading...." : "SIGN IN"}
 
                                             {/* <i className="bi bi-arrow-right" /> */}
                                         </button>

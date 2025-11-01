@@ -9,16 +9,37 @@ const ShopListing = () => {
     const [filters, setFilters] = useState([]);
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate()
-
-    // price range
     const [priceRange, setPriceRange] = useState([0, 150000]);
 
-    // selected categories
+   
     const [selectedCategories, setSelectedCategories] = useState([]);
     const [selectedColors, setSelectedColors] = useState([]);
     const [selectedSizes, setSelectedSizes] = useState([]);
 
-    // ✅ Fetch products with filters
+   
+    const [currentPage, setCurrentPage] = useState(1);
+    const productsPerPage = 8; 
+
+    const totalPages = Math.ceil(products.length / productsPerPage);
+
+    
+    const currentProducts = products.slice(
+        (currentPage - 1) * productsPerPage,
+        currentPage * productsPerPage
+    );
+
+    
+    const handlePageClick = (page) => setCurrentPage(page);
+    const handleNextPage = () => {
+        if (currentPage < totalPages) setCurrentPage(currentPage + 1);
+    };
+    const handlePrevPage = () => {
+        if (currentPage > 1) setCurrentPage(currentPage - 1);
+    };
+
+
+
+  
     const getFilteredProductsData = async () => {
         setLoading(true);
         try {
@@ -40,13 +61,13 @@ const ShopListing = () => {
         }
     };
 
-    // fetch products whenever filters/price changes
+    
     useEffect(() => {
         getFilteredProductsData();
         // eslint-disable-next-line
     }, [priceRange, selectedCategories, selectedColors, selectedSizes]);
 
-    // Handle category select
+    
     const handleSelect = (filter, type) => {
         setFilters((prev) =>
             prev.includes(filter) ? prev : [...prev, filter]
@@ -73,7 +94,7 @@ const ShopListing = () => {
         }
     };
 
-    // Remove individual filter
+  
     const handleRemove = (filter) => {
         setFilters(filters.filter((f) => f !== filter));
         setSelectedCategories((prev) => prev.filter((f) => f !== filter));
@@ -81,7 +102,7 @@ const ShopListing = () => {
         setSelectedSizes((prev) => prev.filter((f) => f !== filter));
     };
 
-    // Clear all
+    
     const clearAll = () => {
         setFilters([]);
         setSelectedCategories([]);
@@ -106,6 +127,7 @@ const ShopListing = () => {
                 </div>
             </div>
             {/* End Page Title */}
+
             <div className="container">
                 <div className="row">
                     {/* Sidebar */}
@@ -118,8 +140,12 @@ const ShopListing = () => {
 
 
                                     <li className="category-item">
+
                                         <div class="d-flex justify-content-between align-items-center category-header collapsed" data-bs-toggle="collapse" data-bs-target="#categories-1-clothing-subcategories" aria-expanded="false" aria-controls="categories-1-clothing-subcategories">
-                                            <a href="javascript:void(0)" class="category-link">Clothing</a>
+
+                                            <button
+                                                type="button"
+                                                className="btn btn-link category-link p-0 text-start">Clothing</button>
                                             <span class="category-toggle">
                                                 <i class="bi bi-chevron-down"></i>
                                                 <i class="bi bi-chevron-up"></i>
@@ -173,7 +199,9 @@ const ShopListing = () => {
 
                                     <li className="category-item">
                                         <div className="d-flex justify-content-between align-items-center category-header collapsed" data-bs-toggle="collapse" data-bs-target="#categories-1-electronics-subcategories" aria-expanded="false" aria-controls="categories-1-electronics-subcategories">
-                                            <a href="javascript:void(0)" className="category-link">Electronics</a>
+                                            <button
+                                                type="button"
+                                                className="btn btn-link category-link p-0 text-start">Electronics</button>
                                             <span className="category-toggle">
                                                 <i className="bi bi-chevron-down"></i>
                                                 <i className="bi bi-chevron-up"></i>
@@ -209,7 +237,9 @@ const ShopListing = () => {
 
                                     <li className="category-item">
                                         <div className="d-flex justify-content-between align-items-center category-header collapsed" data-bs-toggle="collapse" data-bs-target="#categories-1-sports-subcategories" aria-expanded="false" aria-controls="categories-1-sports-subcategories">
-                                            <a href="javascript:void(0)" className="category-link">Sports &amp; Outdoors</a>
+                                            <button
+                                                type="button"
+                                                className="btn btn-link category-link p-0 text-start">Sports &amp; Outdoors</button>
                                             <span className="category-toggle">
                                                 <i className="bi bi-chevron-down"></i>
                                                 <i className="bi bi-chevron-up"></i>
@@ -252,7 +282,9 @@ const ShopListing = () => {
 
                                     <li className="category-item">
                                         <div className="d-flex justify-content-between align-items-center category-header collapsed" data-bs-toggle="collapse" data-bs-target="#categories-1-beauty-subcategories" aria-expanded="false" aria-controls="categories-1-beauty-subcategories">
-                                            <a href="javascript:void(0)" className="category-link">Beauty &amp; Personal Care</a>
+                                            <button
+                                                type="button"
+                                                className="btn btn-link category-link p-0 text-start">Beauty &amp; Personal Care</button>
                                             <span className="category-toggle">
                                                 <i className="bi bi-chevron-down"></i>
                                                 <i className="bi bi-chevron-up"></i>
@@ -313,9 +345,9 @@ const ShopListing = () => {
                                 <h3 className="widget-title">Price Range</h3>
                                 <div className="price-range-container">
                                     <div className="current-range mb-3">
-                                        <span className="min-price">${priceRange[0]}</span>
+                                        <span className="min-price">₹{priceRange[0]}</span>
                                         <span className="max-price float-end">
-                                            ${priceRange[1]}
+                                            ₹{priceRange[1]}
                                         </span>
                                     </div>
                                     <div className="range-slider">
@@ -346,7 +378,7 @@ const ShopListing = () => {
                                         <div className="row g-2">
                                             <div className="col-6">
                                                 <div className="input-group input-group-sm">
-                                                    <span className="input-group-text">$</span>
+                                                    <span className="input-group-text">₹</span>
                                                     <input
                                                         type="number"
                                                         className="form-control min-price-input"
@@ -363,7 +395,7 @@ const ShopListing = () => {
                                             </div>
                                             <div className="col-6">
                                                 <div className="input-group input-group-sm">
-                                                    <span className="input-group-text">$</span>
+                                                    <span className="input-group-text">₹</span>
                                                     <input
                                                         type="number"
                                                         className="form-control max-price-input"
@@ -441,7 +473,7 @@ const ShopListing = () => {
                         </div>
                     </div>
 
-                    {/* Products Section */}
+
                     <div className="col-lg-8">
                         {/* Active Filters */}
                         <section
@@ -451,7 +483,7 @@ const ShopListing = () => {
                             <div className="container" data-aos="fade-up">
                                 <div className="filter-container mb-4" data-aos="fade-up" data-aos-delay="100">
 
-                                    <div className="row g-3">
+                                    {/* <div className="row g-3">
                                         <div className="col-12 col-md-6 col-lg-4">
                                             <div className="filter-item search-form">
                                                 <label for="productSearch" className="form-label">Search Products</label>
@@ -464,7 +496,7 @@ const ShopListing = () => {
                                             </div>
                                         </div>
 
-                                    </div>
+                                    </div> */}
 
                                     {filters.length > 0 && (
                                         <div className="row mt-3">
@@ -517,7 +549,7 @@ const ShopListing = () => {
                                 ) : (
                                     <div className="row g-4">
                                         {products.length > 0 ? (
-                                            products.map((product) => (
+                                            currentProducts.map((product) => (
                                                 <div
                                                     className="col-6 col-xl-4"
                                                     key={product._id}
@@ -555,7 +587,7 @@ const ShopListing = () => {
                                                                         className="action-btn"
                                                                         data-bs-toggle="tooltip"
                                                                         title="Add to Cart"
-                                                                        onClick={()=> navigate(`/productdetails/${product?._id}`)}
+                                                                        onClick={() => navigate(`/productdetails/${product?._id}`)}
                                                                     >
                                                                         <i className="bi bi-cart-plus" />
                                                                     </button>
@@ -587,6 +619,57 @@ const ShopListing = () => {
                                 )}
                             </div>
                         </section>
+
+                        {/* Pagination Section */}
+                        <section id="category-pagination" className="category-pagination section">
+                            <div className="container">
+                                <nav className="d-flex justify-content-center" aria-label="Page navigation">
+                                    <ul>
+                                       
+                                        <li>
+                                            <button
+                                            className="btn btn-link d-flex align-items-center"
+                                                type="button"
+                                                onClick={handlePrevPage}
+                                                disabled={currentPage === 1}
+                                                aria-label="Previous page"
+                                            >
+                                                <i className="bi bi-arrow-left"></i>
+                                                <span className="d-none d-sm-inline ms-1">Previous</span>
+                                            </button>
+                                        </li>
+
+                                       
+                                        {Array.from({ length: totalPages }, (_, index) => (
+                                            <li key={index}>
+                                                <button
+                                                    type="button"
+                                                    className={`btn btn-link ${currentPage === index + 1 ? "active fw-bold" : ""}`}
+                                                    onClick={() => handlePageClick(index + 1)}
+                                                >
+                                                    {index + 1}
+                                                </button>
+                                            </li>
+                                        ))}
+
+                                      
+                                        <li>
+                                            <button
+                                                type="button"
+                                                className="btn btn-link d-flex align-items-center"
+                                                onClick={handleNextPage}
+                                                disabled={currentPage === totalPages}
+                                                aria-label="Next page"
+                                            >
+                                                <span className="d-none d-sm-inline me-1">Next</span>
+                                                <i className="bi bi-arrow-right"></i>
+                                            </button>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </section>
+
                     </div>
                 </div>
             </div>

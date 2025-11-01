@@ -1,17 +1,15 @@
-import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+
 import { Link, Outlet } from "react-router-dom"
-import { toast } from 'react-toastify'
 
 
 const Account = ({ openAuth, setOpenAuth }) => {
 
 
-    const Logout = () => {
-        localStorage.removeItem("ecomweb-token")
-        localStorage.removeItem("user")
-        setOpenAuth(!openAuth)
-    }
+    // const Logout = () => {
+    //     localStorage.removeItem("ecomweb-token")
+    //     localStorage.removeItem("user")
+    //     setOpenAuth(!openAuth)
+    // }
 
     return (
         <>
