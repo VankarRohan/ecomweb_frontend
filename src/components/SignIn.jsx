@@ -24,6 +24,7 @@ const SignIn = ({ setOpenAuth }) => {
             setLoading(false)
             toast.success('🎉 Login successful..')
             // navigate("/home")
+            window.location.href = "/"
 
         } catch (error) {
             console.log(error)
