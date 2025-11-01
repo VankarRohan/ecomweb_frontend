@@ -21,7 +21,7 @@ const Account = ({ openAuth, setOpenAuth }) => {
                     <nav className="breadcrumbs">
                         <ol>
                             <li>
-                                <Link to="index.html">Home</Link>
+                                <Link to="/">Home</Link>
                             </li>
                             <li className="current">Account</li>
                         </ol>
@@ -32,17 +32,6 @@ const Account = ({ openAuth, setOpenAuth }) => {
             <section id="account" className="account section">
                 <div className="container" data-aos="fade-up" data-aos-delay={100}>
                   
-                    <div className="mobile-menu d-lg-none mb-4">
-                        <button
-                            className="mobile-menu-toggle"
-                            type="button"
-                            data-bs-toggle="collapse"
-                            data-bs-target="#profileMenu"
-                        >
-                            <i className="bi bi-grid" />
-                            <span>Menu</span>
-                        </button>
-                    </div>
                     <div className="row g-4">
 
                         <div className="content-area">

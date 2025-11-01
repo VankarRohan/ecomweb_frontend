@@ -81,7 +81,7 @@ const Home = () => {
                         >
                             <div className="product-card featured">
                                 <img
-                                    src="assets/img/product/product-2.webp"
+                                    src="https://cdn.mos.cms.futurecdn.net/KfKJ7uGAXBxezdLqFMAZAR.jpg"
                                     alt="Featured Product"
                                     className="img-fluid"
                                 />
@@ -89,8 +89,8 @@ const Home = () => {
                                 <div className="product-info">
                                     <h4>Premium Wireless Headphones</h4>
                                     <div className="price">
-                                        <span className="sale-price">$299</span>
-                                        <span className="original-price">$399</span>
+                                        <span className="sale-price">₹2999</span>
+                                        <span className="original-price">₹3999</span>
                                     </div>
                                 </div>
                             </div>
@@ -101,7 +101,7 @@ const Home = () => {
                                         alt="Product"
                                         className="img-fluid"
                                     />
-                                    <span className="mini-price">$89</span>
+                                    <span className="mini-price">₹1899</span>
                                 </div>
                                 <div className="product-mini" data-aos="zoom-in" data-aos-delay={500}>
                                     <img
@@ -109,7 +109,7 @@ const Home = () => {
                                         alt="Product"
                                         className="img-fluid"
                                     />
-                                    <span className="mini-price">$149</span>
+                                    <span className="mini-price">₹1549</span>
                                 </div>
                             </div>
                         </div>
