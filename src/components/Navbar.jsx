@@ -10,13 +10,13 @@ const Navbar = ({ openAuth, setOpenAuth }) => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        
+
         const storedUser = localStorage.getItem("user");
         if (storedUser) {
             try {
                 setCurrentUser(JSON.parse(storedUser));
             } catch {
-                setCurrentUser(storedUser); 
+                setCurrentUser(storedUser);
             }
         }
     }, []);
@@ -38,10 +38,20 @@ const Navbar = ({ openAuth, setOpenAuth }) => {
                         </div>
 
                         {/* Search (desktop) */}
-                        <form className="search-form desktop-search-form">
+                        <form className="search-form desktop-search-form"
+                            onSubmit={(e) => {
+                                e.preventDefault();
+                                const query = e.target.search.value.trim();
+                                if (query) {
+                                    navigate(`/search?q=${encodeURIComponent(query)}`);
+                                    e.target.search.value = "";
+                                }
+                            }}
+                        >
                             <div className="input-group">
                                 <input
                                     type="text"
+                                    name="search"
                                     className="form-control"
                                     placeholder="Search for products"
                                 />
@@ -93,7 +103,7 @@ const Navbar = ({ openAuth, setOpenAuth }) => {
                                                     <i className="bi bi-heart me-2"></i>
                                                     <span>My Wishlist</span>
                                                 </Link>
-                                             
+
                                                 <div className="dropdown-footer">
 
                                                     <button className="btn btn-outline-danger w-100" onClick={handleLogout}>
@@ -108,7 +118,7 @@ const Navbar = ({ openAuth, setOpenAuth }) => {
                                                 <button className="btn btn-outline-primary w-100 " onClick={() => setOpenAuth(!openAuth)}>Sign In / Register</button>
                                                 {/* <button className="btn btn-outline-primary w-100" onClick={() => setOpenAuth(!openAuth)}>Register</button> */}
                                             </div>
-                                        )}  
+                                        )}
 
                                     </div>
                                 </div>

@@ -28,8 +28,8 @@ const ProductCategoryCard = ({category}) => {
                         <i className="bi bi-star-fill" />
                         <i className="bi bi-star-fill" />
                         <i className="bi bi-star-fill" />
-                        <i className="bi bi-star-fill" />
-                        <span className="rating-count">(324)</span>
+                        <i className="bi bi-star-half" />
+                        <span className="rating-count">({category.ratingcount})</span>
                     </div>
                 </div>
             </div>

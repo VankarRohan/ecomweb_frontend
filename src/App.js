@@ -17,6 +17,7 @@ import ProductDetails from "./pages/ProductDetails";
 import Favorite from "./pages/Favorite";
 import Orders from "./pages/Orders";
 import Profile from "./pages/Profile";
+import SearchProducts from "./pages/SearchProducts";
 // import { useSelector } from 'react-redux';
 
 
@@ -57,6 +58,7 @@ function App() {
         <Route path="/signup" exact element={<SignUp />}></Route>
         <Route path="/checkout" exact element={<CheckOut />}></Route>
         <Route path="/productdetails/:id" element={<ProductDetails />}></Route>
+        <Route path="/search" element={<SearchProducts />}></Route>
         {/* <Route path="/favorite" exact element={<Favorite />}></Route> */}
 
       </Routes>
