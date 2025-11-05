@@ -51,10 +51,11 @@ const Profile = () => {
                 { headers: { "Content-Type": "multipart/form-data" } }
             );
             console.log(res.data);
-            // console.log(res.data.updatedUser);
+            setUser(res.data.data);
             localStorage.setItem("user", JSON.stringify(res.data.data));
             toast.success("Profile image updated!");
             getUser();
+
         } catch (error) {
             toast.error("Image upload failed!");
             console.log(error);
@@ -64,7 +65,6 @@ const Profile = () => {
 
     const submitHandler = async (data) => {
         try {
-            const token = localStorage.getItem("ecomweb-token");
             const res = await axios.put(`https://ecomweb-backend-u6x8.onrender.com/users/user/${user._id}`, data)
             console.log(res.data);
             toast.success("Profile updated successfully!");
@@ -110,11 +110,7 @@ const Profile = () => {
                         <div className="profile-header d-flex align-items-center gap-3 mb-4">
                             <div style={{ position: "relative" }}>
                                 <img
-                                    src={
-                                        user.img
-                                            ? `https://ecomweb-backend-u6x8.onrender.com${user.img}`
-                                            : "https://cdn-icons-png.flaticon.com/512/847/847969.png"
-                                    }
+                                    src={user?.img || "https://www.w3schools.com/howto/img_avatar.png"}
                                     alt="Profile Avatar"
                                     width="80"
                                     height="80"
