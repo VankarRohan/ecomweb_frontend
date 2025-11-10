@@ -108,7 +108,7 @@ const ProductCard = ({ product }) => {
                     <div className="product-badge sale-badge">{product?.price?.off}% off</div>
                     <img
                         src={product?.img[0]}
-                        alt="Product image"
+                        alt="Product"
                         className="img-fluid"
                         loading="lazy"
                     />

@@ -11,6 +11,7 @@ const Favorite = () => {
   const token = localStorage.getItem("ecomweb-token")
   // console.log(token)
 
+  
   const getfavorites = async () => {
 
     try {
@@ -29,13 +30,12 @@ const Favorite = () => {
       toast.error(error.response.data.message);
     }
   }
-
-
   useEffect(() => {
     if (token) {
-      getfavorites()
+      getfavorites();
     }
-  }, [])
+    // eslint-disable-next-line
+  }, [token])
   return (
     <section id="best-sellers" className="best-sellers section">
 
