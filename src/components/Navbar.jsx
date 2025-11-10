@@ -34,7 +34,7 @@ const Navbar = ({ openAuth, setOpenAuth }) => {
                     <div className="d-flex py-3 align-items-center justify-content-between">
                         {/* Logo */}
                         <div className="logo d-flex align-items-center">
-                            <h1 className="sitename">E.com</h1>
+                            <h1 className="sitename">E.com {""} </h1>
                         </div>
 
                         {/* Search (desktop) */}

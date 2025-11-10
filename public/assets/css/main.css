@@ -333,7 +333,9 @@ h6 {
 
 @media (max-width: 1200px) {
   .header .main-header .desktop-search-form {
-    display: none;
+   
+min-width: 10px;
+margin-left: 10px;
   }
 }
 
