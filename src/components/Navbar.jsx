@@ -115,7 +115,10 @@ const Navbar = ({ openAuth, setOpenAuth }) => {
                                         ) : (
 
                                             <div className="dropdown-footer">
-                                                <button className="btn btn-outline-primary w-100 " onClick={() => setOpenAuth(!openAuth)}>Sign In / Register</button>
+                                                <button className="btn btn-outline-primary w-100 "
+                                                    onClick={() => setOpenAuth(!openAuth)}
+
+                                                >Sign In / Register</button>
                                                 {/* <button className="btn btn-outline-primary w-100" onClick={() => setOpenAuth(!openAuth)}>Register</button> */}
                                             </div>
                                         )}
@@ -158,12 +161,14 @@ const Navbar = ({ openAuth, setOpenAuth }) => {
                                 Sign In
                             </button>
                         )} */}
-                        <button
-                            className="mobile-nav-toggle d-xl-none btn"
-                            onClick={() => setIsMobileNavOpen(!isMobileNavOpen)}
-                        >
-                            <i style={{ color: "blue", fontSize: "25px", background: "white" }} className={`bi ${isMobileNavOpen ? "bi-x" : "bi-list"}`} />
-                        </button>
+                        {!openAuth && (
+                            <button
+                                className="mobile-nav-toggle d-xl-none btn"
+                                onClick={() => setIsMobileNavOpen(!isMobileNavOpen)}
+                            >
+                                <i style={{ color: "blue", fontSize: "25px", background: "white" }} className={`bi ${isMobileNavOpen ? "bi-x" : "bi-list"}`} />
+                            </button>
+                        )}
                     </div>
                 </div>
             </div>
