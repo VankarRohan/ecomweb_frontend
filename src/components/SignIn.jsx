@@ -105,7 +105,7 @@ const SignIn = ({ setOpenAuth }) => {
                                                 <input type="checkbox" id="rememberLogin" />
                                                 <label htmlFor="rememberLogin">Remember me</label>
                                             </div>
-                                            <Link to="#" className="forgot-password">
+                                            <Link to="/forgotpwd" className="forgot-password" onClick={()=>setOpenAuth(false)}>
                                                 Forgot password?
                                             </Link>
                                         </div>

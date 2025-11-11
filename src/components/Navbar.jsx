@@ -53,7 +53,7 @@ const Navbar = ({ openAuth, setOpenAuth }) => {
                                     type="text"
                                     name="search"
                                     className="form-control"
-                                    placeholder="Search for products"
+                                    placeholder="Search..."
                                 />
                                 <button className="btn" type="submit">
                                     <i className="bi bi-search" />
